@@ -1,0 +1,61 @@
+version: '2.1'
+networks:
+  local_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+services:
+  bnode1:
+    build:
+      context: ./node-rpc
+      dockerfile: node-rpc.dockerfile
+    container_name: node-rpc_1
+    networks:
+      local_net:
+        ipv4_address: '172.19.1.1'
+    volumes:
+      - ./node-rpc:/nodedata
+    ports:
+      - "8502:8502"
+      - "30311:30311"
+  node1:
+    build:
+      context: ./node1
+      dockerfile: node1.dockerfile
+    container_name: node_1
+    networks:
+      local_net:
+        ipv4_address: '172.19.1.2'
+    volumes:
+      - ./node1:/nodedata
+    ports:
+      - "8503:8502"
+      - "30312:30311"
+  node2:
+    build:
+      context: ./node2
+      dockerfile: node2.dockerfile
+    container_name: node_2
+    networks:
+      local_net:
+        ipv4_address: '172.19.1.3'
+    volumes:
+      - ./node2:/nodedata
+    ports:
+      - "8504:8502"
+      - "30313:30311"
+  node3:
+    build:
+      context: ./node3
+      dockerfile: node3.dockerfile
+    container_name: node_3
+    networks:
+      local_net:
+        ipv4_address: '172.19.1.4'
+    volumes:
+      - ./node3:/nodedata
+    ports:
+      - "8505:8502"
+      - "30314:30311"
