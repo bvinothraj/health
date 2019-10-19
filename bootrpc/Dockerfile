@@ -1,4 +1,6 @@
-FROM ethereum/client-go
+# DockerFile for rpc/bootnode 
+
+FROM ethereum/client-go:v1.9.6
 WORKDIR /root/eth
 #ADD static-nodes.json .
 ADD bootnode.key .
