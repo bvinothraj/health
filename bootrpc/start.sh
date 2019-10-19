@@ -22,3 +22,4 @@ geth --datadir nodedata \
 	 --rpcport 8502 \
 	 --rpcapi 'personal,db,eth,net,web3,txpool,miner,clique,admin' \
 	 --rpccorsdomain '*' \
+	 --miner.gasprice 0
