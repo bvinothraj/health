@@ -27,5 +27,6 @@ geth --datadir nodedata \
 	 --unlock '0' \
 	 --password pp.txt \
 	 --mine \
-	 --miner.gasprice 0 \
+	 --miner.gaslimit 90000000 \
+	 --miner.gasprice 1000 \
 	 --allow-insecure-unlock
